@@ -1,0 +1,28 @@
+{
+  "name": "wpshop",
+  "description": "这是一个购物车项目",
+  "main": "",
+  "authors": [
+    "wenp"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "wp",
+    "shop"
+  ],
+  "homepage": "http://wp970.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5",
+    "angular-route": "^1.5.5"
+  }
+}
