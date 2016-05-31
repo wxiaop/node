@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="Author" content="" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>类容管理</title>
+    <style>
+        *{margin:0;padding:0;}
+        body{font-size:12px;font-family:"Microsoft YaHei";color:#666;margin-top:20px;}
+        .container{width:100%;}
+        .table{width:100%;border-collapse:collapse;}
+        .table th{background:#98CECB;font-size:16px;color:#111;}
+        .table th,td{border:1px solid #ccc;padding:5px 10px;}
+        .table tr:hover{background:#eee;}
+        .table td:hover{background:#CAB5BF;color:#111;}
+        .table tr a{text-decoration: none;    display: inline-block;width: 100%;}
+
+        /*分页组件*/
+        .tzPage{font-size:12px;margin-top: 5px;}
+        .tzPage a{text-decoration:none;border:solid 1px #ccc;color:#999;}
+        .tzPage a,.tzPage span{display:block;float:left;padding:0em 0.5em;margin-right:5px;margin-bottom:5px;min-width:1em;text-align:center;line-height: 22px;height: 22px;}
+        .tzPage .current{background:#e5e5e5;color:#999;border:solid 1px #e5e5e5;}
+        .tzPage .current.prev,.tzPage .current.next{color:#999;border:1px solid #e5e5e5;background:#fff;}
+        .tm_psize_go{margin-right:4px;float:left;height:24px;line-height:33px;position:relative;border:1px solid #e5e5e5;color:#999}
+        #tm_pagego{height:22px;width:30px;float:left;text-align:center;border:1px solid #e5e5e5;line-height: 22px;color:#999}
+        .sortdesc{border-top:5px solid;width:0px;height:0px;display:inline-block;vertical-align:middle;border-right:5px solid transparent;border-left:5px solid transparent;margin-left:5px;}
+        .sortasc{border-bottom:5px solid;width:0px;height:0px;display:inline-block;vertical-align:middle;border-right:5px solid transparent;border-left:5px solid transparent;margin-left:5px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>目录</th>
+                    <th>标题</th>
+                    <th>作者</th>
+                    <th>浏览量</th>
+                    <th>创建时间</th>
+                    <th>删除状态</th>
+                    <th>发布状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>网站首页</td>
+                    <td>渡人如渡己，渡已，亦是渡</td>
+                    <td>文鹏</td>
+                    <td>9999</td>
+                    <td>2016-04-15</td>
+                    <td>未删除</td>
+                    <td>已发布</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>网站首页</td>
+                    <td>渡人如渡己，渡已，亦是渡</td>
+                    <td>文鹏</td>
+                    <td>9999</td>
+                    <td>2016-04-15</td>
+                    <td>未删除</td>
+                    <td>已发布</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>网站首页</td>
+                    <td>渡人如渡己，渡已，亦是渡</td>
+                    <td>文鹏</td>
+                    <td>9999</td>
+                    <td>2016-04-15</td>
+                    <td>未删除</td>
+                    <td>已发布</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>网站首页</td>
+                    <td>渡人如渡己，渡已，亦是渡</td>
+                    <td>文鹏</td>
+                    <td>9999</td>
+                    <td>2016-04-15</td>
+                    <td>未删除</td>
+                    <td>已发布</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>网站首页</td>
+                    <td>渡人如渡己，渡已，亦是渡</td>
+                    <td>文鹏</td>
+                    <td>9999</td>
+                    <td>2016-04-15</td>
+                    <td>未删除</td>
+                    <td>已发布</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>网站首页</td>
+                    <td>渡人如渡己，渡已，亦是渡</td>
+                    <td>文鹏</td>
+                    <td>9999</td>
+                    <td>2016-04-15</td>
+                    <td>未删除</td>
+                    <td>已发布</td>
+                    <td>操作</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>网站首页</td>
+                    <td>渡人如渡己，渡已，亦是渡</td>
+                    <td>文鹏</td>
+                    <td>9999</td>
+                    <td>2016-04-15</td>
+                    <td>未删除</td>
+                    <td>已发布</td>
+                    <td>操作</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="page"></div>
+    </div>
+    <script src="../../js/jquery-1.11.2.min.js"></script>
+    <script src="../../js/tz_page.js"></script>
+    <script>
+        $(".page").tzPage("20", {
+            num_edge_entries : 1, //边缘页数
+            num_display_entries :4, //主体页数
+            num_edge_entries:5,
+            current_page:0,
+            showGo:true,
+            showSelect:true,
+            items_per_page : 15, //每页显示X项
+            prev_text : "前一页",
+            next_text : "后一页",
+            callback : function(pageNo,psize){//回调函数
+                loadData(pageNo*psize,psize);
+            }
+        });
+    </script>
+</body>
+</html>

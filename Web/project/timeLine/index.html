@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		body{font-size:12px;font-family:"微软雅黑";color:#666;background:url("images/bj.png") top center;}
+		/*start*/
+		.container{width:100%;height:100%;position:abslute;top:0;left:0;}
+		.container .all{width:100%;height:100%;position:relative;}
+		.container .all .timeline{height:100%;width:5px;background:#fff;position:absolute;top:200px;left:200px;min-height:560px;}
+		/*  send start*/
+		.container .snedMessage{position:relative;top:100px;left:150px;z-index:1;}
+		.container .snedMessage .m_head{float:left;}
+		.container .snedMessage .m_head img{border-radius:50px;}
+		.container .snedMessage .m_ico{border:10px solid;border-color: transparent #FFF transparent transparent;width:0;height:0;float:left;margin-top:25px;}
+		.container .m_con{width:500px;min-height:150px;background:#fff;float:left;border-radius:5px;  box-shadow: 3px 3px 6px 2px #000;}
+		.container .m_con p{padding: 10px 0 5px 20px;font-size:14px;}
+		.container .m_con .m_c_con{width:460px;min-height:60px;border:1px solid #e5e5e5;margin:0 auto;padding:10px;outline:none;overflow:auto;}
+		.container .m_con .m_face{margin: 10px 0 0 10px;float:left;cursor:pointer;}
+		.container .m_con a{float:right;text-decoration:none;width:80px;height:30px;background:#ff8140;text-align:center;line-height:30px;color:#fff;  margin: 5px 10px 6px 0;border-radius:3px;}
+		.container .m_con a:hover{background:#ff7226;}
+		.container .m_con .facebox{width:370px;background:#fff;position:absolute;margin:32px;box-shadow: 2px 2px 12px 2px #000;display:none;z-index:1;}
+		.container .m_con .facebox ul li{list-style:none;float:left;padding:2px;cursor:pointer;}
+		/*end send*/
+		/* message start*/
+		.container .message{width:620px;position:relative;top:100px;left:150px;margin-top:60px;}
+		.container .message .m_head{float:left;}
+		.container .message .m_head img{border-radius:50px;position:relative;}
+		.container .message .m_ico{border:10px solid;border-color: transparent #FFF transparent transparent;width:0;height:0;float:left;margin-top:25px;}
+		.container .message .m_text{width:480px;min-height:80px;background:#fff;float:left;padding:10px;letter-spacing:1px;  box-shadow: 2px 2px 10px 2px #474747;
+  border-radius: 5px;font-size:14px;color:#acacac;}
+		/*end message*/
+		.clear{clear:both;}
+		/*end*/
+	</style>
+	<link type="text/css" rel="stylesheet" href="css/wenp.min.css" />
+</head>
+<body>
+<!--<canvas id="bg_timeline" width="1423" height="774" style="position: fixed; top: 0px; left: 0px; z-index: 3; width: 100%; height: 100%;"></canvas>-->
+<div class="container">
+	<div class="all">
+		<div class="timeline"></div>
+		<div class="snedMessage">
+			<p class="m_head"><img src="images/head.png" alt="" width="100" height="100" /></p>
+			<p class="m_ico"></p>
+			<div class="m_con">
+				<p>有什么新鲜事告诉大家？</p>
+				<div class="m_c_con" id="f_con" contenteditable="true"></div>
+				<div class="m_face"><img src="images/face/smilea_thumb.gif" alt="" width="22" height="22" /></div>
+				<a href="#" id="send">发表</a>
+				<div class="facebox">
+					<ul id="face">
+						<li><img src="images/face/zz2_thumb.gif" title="[织]" width="22" height="22"></li>
+						<li><img src="images/face/horse2_thumb.gif" title="[神马]"></li>
+						<li><img src="images/face/fuyun_thumb.gif" title="[浮云]"></li>
+						<li><img src="images/face/geili_thumb.gif" title="[给力]"></li>
+						<li><img src="images/face/wg_thumb.gif" title="[围观]"></li>
+						<li><img src="images/face/vw_thumb.gif" title="[威武]"></li>
+						<li><img src="images/face/panda_thumb.gif" title="[熊猫]"></li>
+						<li><img src="images/face/rabbit_thumb.gif" title="[兔子]"></li>
+						<li><img src="images/face/otm_thumb.gif" title="[奥特曼]"></li>
+						<li><img src="images/face/j_thumb.gif" title="[囧]"></li>
+						<li><img src="images/face/hufen_thumb.gif" title="[互粉]"></li>
+						<li><img src="images/face/liwu_thumb.gif" title="[礼物]"></li>
+						<li><img src="images/face/smilea_thumb.gif" title="[呵呵]"></li>
+						<li><img src="images/face/tootha_thumb.gif" title="[嘻嘻]"></li>
+						<li><img src="images/face/laugh.gif" title="[哈哈]"></li>
+						<li><img src="images/face/tza_thumb.gif" title="[可爱]"></li>
+						<li><img src="images/face/kl_thumb.gif" title="[可怜]"></li>
+						<li><img src="images/face/kbsa_thumb.gif" title="[挖鼻屎]"></li>
+						<li><img src="images/face/cj_thumb.gif" title="[吃惊]"></li>
+						<li><img src="images/face/shamea_thumb.gif" title="[害羞]"></li>
+						<li><img src="images/face/zy_thumb.gif" title="[挤眼]"></li>
+						<li><img src="images/face/bz_thumb.gif" title="[闭嘴]"></li>
+						<li><img src="images/face/bs2_thumb.gif" title="[鄙视]"></li>
+						<li><img src="images/face/lovea_thumb.gif" title="[爱你]"></li>
+						<li><img src="images/face/sada_thumb.gif" title="[泪]"></li>
+						<li><img src="images/face/heia_thumb.gif" title="[偷笑]"></li>
+						<li><img src="images/face/qq_thumb.gif" title="[亲亲]"></li>
+						<li><img src="images/face/sb_thumb.gif" title="[生病]"></li>
+						<li><img src="images/face/mb_thumb.gif" title="[太开心]"></li>
+						<li><img src="images/face/ldln_thumb.gif" title="[懒得理你]"></li>
+						<li><img src="images/face/yhh_thumb.gif" title="[右哼哼]"></li>
+						<li><img src="images/face/zhh_thumb.gif" title="[左哼哼]"></li>
+						<li><img src="images/face/x_thumb.gif" title="[嘘]"></li>
+						<li><img src="images/face/cry.gif" title="[衰]"></li>
+						<li><img src="images/face/wq_thumb.gif" title="[委屈]"></li>
+						<li><img src="images/face/t_thumb.gif" title="[吐]"></li>
+						<li><img src="images/face/k_thumb.gif" title="[打哈气]"></li>
+						<li><img src="images/face/bba_thumb.gif" title="[抱抱]"></li>
+						<li><img src="images/face/angrya_thumb.gif" title="[怒]"></li>
+						<li><img src="images/face/yw_thumb.gif" title="[疑问]"></li>
+						<li><img src="images/face/cza_thumb.gif" title="[馋嘴]"></li>
+						<li><img src="images/face/88_thumb.gif" title="[拜拜]"></li>
+						<li><img src="images/face/sk_thumb.gif" title="[思考]"></li>
+						<li><img src="images/face/sweata_thumb.gif" title="[汗]"></li>
+						<li><img src="images/face/sleepya_thumb.gif" title="[困]"></li>
+						<li><img src="images/face/sleepa_thumb.gif" title="[睡觉]"></li>
+						<li><img src="images/face/money_thumb.gif" title="[钱]"></li>
+						<li><img src="images/face/sw_thumb.gif" title="[失望]"></li>
+						<li><img src="images/face/cool_thumb.gif" title="[酷]"></li>
+						<li><img src="images/face/hsa_thumb.gif" title="[花心]"></li>
+						<li><img src="images/face/hatea_thumb.gif" title="[哼]"></li>
+						<li><img src="images/face/gza_thumb.gif" title="[鼓掌]"></li>
+						<li><img src="images/face/dizzya_thumb.gif" title="[晕]"></li>
+						<li><img src="images/face/bs_thumb.gif" title="[悲伤]"></li>
+						<li><img src="images/face/crazya_thumb.gif" title="[抓狂]"></li>
+						<li><img src="images/face/h_thumb.gif" title="[黑线]"></li>
+						<li><img src="images/face/yx_thumb.gif" title="[阴险]"></li>
+						<li><img src="images/face/nm_thumb.gif" title="[怒骂]"></li>
+						<li><img src="images/face/hearta_thumb.gif" title="[心]"></li>
+						<li><img src="images/face/unheart.gif" title="[伤心]"></li>
+						<li><img src="images/face/pig.gif" title="[猪头]"></li>
+						<li><img src="images/face/ok_thumb.gif" title="[ok]"></li>
+						<li><img src="images/face/ye_thumb.gif" title="[耶]"></li>
+						<li><img src="images/face/good_thumb.gif" title="[good]"></li>
+						<li><img src="images/face/no_thumb.gif" title="[不要]"></li>
+						<li><img src="images/face/z2_thumb.gif" title="[赞]"></li>
+						<li><img src="images/face/come_thumb.gif" title="[来]"></li>
+						<li><img src="images/face/sad_thumb.gif" title="[弱]"></li>
+						<li><img src="images/face/lazu_thumb.gif" title="[蜡烛]"></li>
+						<li><img src="images/face/clock_thumb.gif" title="[钟]"></li>
+						<li><img src="images/face/cake.gif" title="[蛋糕]"></li>
+						<li><img src="images/face/m_thumb.gif" title="[话筒]"></li>
+						<li><img src="images/face/weijin_thumb.gif" title="[围脖]"></li>
+						<li><img src="images/face/lxhzhuanfa_thumb.gif" title="[转发]"></li>
+						<li><img src="images/face/lxhluguo_thumb.gif" title="[路过这儿]"></li>
+						<li><img src="images/face/bofubianlian_thumb.gif" title="[bofu变脸]"></li>
+						<li><img src="images/face/gbzkun_thumb.gif" title="[gbz困]"></li>
+						<li><img src="images/face/boboshengmenqi_thumb.gif" title="[生闷气]"></li>
+						<li><img src="images/face/chn_buyaoya_thumb.gif" title="[不要啊]"></li>
+						<li><img src="images/face/daxiongleibenxiong_thumb.gif" title="[dx泪奔]"></li>
+						<li><img src="images/face/cat_yunqizhong_thumb.gif" title="[运气中]"></li>
+						<li><img src="images/face/youqian_thumb.gif" title="[有钱]"></li>
+						<li><img src="images/face/cf_thumb.gif" title="[冲锋]"></li>
+						<li><img src="images/face/camera_thumb.gif" title="[照相机]"></li>		
+					</ul>			
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div id="text"></div>
+	</div>
+</div>
+
+<script type="text/javascript" src="../../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/wenp.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		var timeLine_wp = localStorage.getItem("timeLine_wp");
+		if(timeLine_wp) {
+			$("#text").html(timeLine_wp);
+		}
+		
+		
+		
+		$(".m_face").click(function(){
+			$("#face").parent(".facebox").toggle(700);
+		}); 
+		$("#face li").click(function(){
+			var face = $(this).find("img").clone();
+			$("#f_con").append(face);
+			$("#face").parent(".facebox").hide(700);
+		});
+		$("#send").click(function(){
+			var text = $("#f_con").html();
+			if( $("#f_con").html() == "" | $("#f_con").text() == "") {
+				$.wp_loading({content:"随便写两句呗！",width:150,height:50,time:2});
+				
+			}else{
+				$("#text").prepend("<div class='message'>"+
+				"<p class='m_head'>"+"<img src='images/head.png' alt='' width='100' height='100' />"+"</p>"+
+				"<p class='m_ico'>"+"</p>"+
+				"<div class='m_text'>"+text+"</div>"+
+				"<div class='clear'>"+"</div>"+
+				"</div>");
+				localStorage.setItem("timeLine_wp",$("#text").html());
+				$("#f_con").empty();
+			}
+		});
+		$(window).scroll(function(){
+			
+			if( $(window).scrollTop() > 200) {
+				$(".snedMessage").css({"position":"fixed","top":"0"});
+			}else{
+				$(".snedMessage").removeAttr("style");
+			}
+		});
+
+
+	});
+	
+</script>
+</body>
+</html>

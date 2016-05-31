@@ -1,0 +1,13 @@
+*{margin:0;padding:0;}
+body{background:url("../images/bg1.jpg");font-family:"Microsoft YaiHei";color:#666;position:absolute;width:100%;height:100%;top:0;left:0;background-size:cover;background-repeat:no-repeat;background-attachment:fixed;z-index:-1;}
+.container{width:100%;height:100%;overflow:hidden;position:absolute;top:0;left:0;}
+.login{width:400px;height:400px;margin:100px auto;background:url("../images/love.png") no-repeat;padding:50px 0 0 0;}
+input[type="text"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:100%;height:-webkit-calc(3em + 2px);height:calc(3em + 2px);margin:0 0 1em;padding:1em;border:1px solid #cccccc;background:#fff;resize:none;outline:none;}
+input[type="password"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:100%;height:-webkit-calc(3em + 2px);height:calc(3em + 2px);margin:0 0 1em;padding:1em;border:1px solid #cccccc;background:#fff;resize:none;outline:none;}
+input[type="submit"]{width:100%;height:42px;outline:none;border:1px solid #ccc;background:#99E297;box-shadow:1px 3px 5px 0px #1D1D16;color:#fff;font-size:32px;cursor:pointer;}
+input[required]:focus{border-color:#00bafa;}
+input[required]:focus + label[placeholder]:before{color:#00bafa;}
+input[required]:focus + label[placeholder]:before,input[required]:valid + label[placeholder]:before{-webkit-transition-duration:.2s;transition-duration:.2s;-webkit-transform:translate(0,-1.5em) scale(0.9,0.9);-ms-transform:translate(0,-1.5em) scale(0.9,0.9);transform:translate(0,-1.5em) scale(0.9,0.9);}
+input[required]:invalid + label[placeholder][alt]:before{content:attr(alt);}
+input[required] + label[placeholder]{display:block;pointer-events:none;line-height:2.3em;margin-top:-webkit-calc(-3em - 2px);margin-top:calc(-3em - 2px);margin-bottom:-webkit-calc((3em - 1em) + 2px);margin-bottom:calc((3em - 1em) + 2px);}
+input[required] + label[placeholder]:before{content:attr(placeholder);display:inline-block;margin:0 -webkit-calc(1em + 2px);margin:0 calc(1em + 2px);padding:0 2px;color:#898989;white-space:nowrap;-webkit-transition:0.3s ease-in-out;transition:0.3s ease-in-out;background-image:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#ffffff));background-image:-webkit-linear-gradient(top,#ffffff,#ffffff);background-image:linear-gradient(to bottom,#ffffff,#ffffff);-webkit-background-size:100% 5px;background-size:100% 5px;background-repeat:no-repeat;background-position:center;}

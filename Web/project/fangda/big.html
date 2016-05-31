@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>jQuery放大镜插件evenZoom演示_dowebok</title>
+<link rel="stylesheet" href="css/evenZoom.css">
+</head>
+
+<body>
+<h1>jQuery放大镜插件evenZoom演示</h1>
+
+<div class="wrap">
+	<div class="dowebok" data-zoomed="images/big.jpg">
+		<img src="images/small.jpg" alt="">
+	</div>
+</div>
+
+<script src="../../js/jquery-1.11.2.min.js"></script>
+<script src="js/evenZoom.js"></script>
+<script>
+$(function(){
+	$(".dowebok").evenZoom();
+});
+</script>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		body{font-size:12px;font-family:"Microsoft YaHei";color:#666;}
+		#left{width:49%;float:left;}
+		#right{width:49%;float:left;margin-left:2%;}
+		.tit{line-height: 30px;color: red;font-size: 16px;margin-left:50px;}
+		#preview{margin-left:2%;margin-top:30px;}
+	</style>
+	<!-- Create a simple CodeMirror instance -->
+
+	<link type="text/css" rel="stylesheet" href="css/codemirror.css" />
+	<link type="text/css" rel="stylesheet" href="css/3024-night.css" />
+	<script src="js/codemirror.js"></script>
+	<script src="js/javascript.js"></script>
+	 <script src="js/xml.js"></script> 
+	<script src="js/htmlmixed.js"></script>
+	<script src="js/css.js"></script>
+</head>
+<body>
+	<div id="left">
+		<p class="tit">HTML</p>
+		<textarea id="htmledit">
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+</head>
+<body>
+
+</body>
+</html>		
+		</textarea>
+		<p class="tit">Css</p>
+		<textarea id="cssedit">
+<style type="text/css">
+	*{margin:0;padding:0;}
+</style>		
+		</textarea>
+	</div>
+	<div id="right">
+		<p class="tit">Javascript</p>
+		<textarea id="jsedit">
+<script type="text/javascript">
+	function test() {
+		alert(1);
+	}
+</script>
+		</textarea>
+	</div>
+	<iframe id="preview" name="preview" width="47%" height="330"></iframe>
+
+	<script>
+		 // var myCodeMirror = CodeMirror(document.body);
+		/*html*/
+		var htmleditDom = document.getElementById("htmledit");
+		var htmlCodeMirror = CodeMirror.fromTextArea(htmleditDom, {
+			mode:"htmlmixed",
+			lineNumbers: true,
+			theme:"3024-night",
+			tabSize:4
+		  });
+		  /*css*/
+		var csseditDom = document.getElementById("cssedit");
+		var cssCodeMirror = CodeMirror.fromTextArea(csseditDom, {
+			mode:"css",
+			lineNumbers: true,
+			theme:"3024-night",
+			tabSize:4
+		  });
+		  /*javascript*/
+		var jseditDom = document.getElementById("jsedit");
+		var jsCodeMirror = CodeMirror.fromTextArea(jseditDom, {
+			mode:"javascript",
+			lineNumbers: true,
+			theme:"3024-night",
+			tabSize:4
+		  });
+		/*var myTextarea = CodeMirror.fromTextArea(editDom, {
+			lineNumbers: true
+		  });*/
+		window.onload = function(){
+			htmlCodeMirror.on("change",function(){
+				setPreview();
+				setEditorData();
+			});	
+
+			cssCodeMirror.on("change",function(){
+				setPreview();
+				setEditorData();
+			});
+			
+
+			if(window.localStorage){
+				var htmlData = localStorage.getItem("html_editor_data");
+				var jsData = localStorage.getItem("js_editor_data");
+				var cssData = localStorage.getItem("css_editor_data");
+				htmlCodeMirror.setValue(htmlData);
+				jsCodeMirror.setValue(jsData);
+				cssCodeMirror.setValue(cssData);
+			};
+		};
+
+
+		function setPreview(){
+			var htmlSource = htmlCodeMirror.getValue();
+			var jsSource = jsCodeMirror.getValue();
+			var cssSource = cssCodeMirror.getValue();
+
+			//怎么设置到iframe去
+			var iframe = window.frames["preview"];
+			preview.document.open();
+			preview.document.write(htmlSource);
+			preview.document.write(jsSource);
+			preview.document.write(cssSource);
+			preview.document.close();
+		};
+
+		function setEditorData(){
+			var htmlSource = htmlCodeMirror.getValue();
+			var jsSource = jsCodeMirror.getValue();
+			var cssSource = cssCodeMirror.getValue();
+			if(window.localStorage){
+				localStorage.setItem("html_editor_data",htmlSource);
+				localStorage.setItem("js_editor_data",jsSource);
+				localStorage.setItem("css_editor_data",cssSource);
+			}
+		}
+	</script>
+
+</body>
+</html>
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="Author" content="" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>网站后台管理系统</title>
+    <link rel="stylesheet" href="../css/admin.css"/>
+    <link rel="stylesheet" href="../css/calendar.css"/>
+</head>
+<body>
+
+    <div class="container">
+        <div class="left">
+            <div class="logo">
+                <a href="javascript:void(0);"><img src="../images/logo.png" alt="logo"/></a>
+                <h1><a href="adminIframe/index.html" target="HTML">后台管理系统</a></h1>
+            </div>
+            
+            <ul>
+                <li><a href="adminIframe/mange.html" target="HTML">内容管理模块</a></li>
+                <li><a href="adminIframe/add.html" target="HTML">内容添加模块</a></li>
+                <li><a href="javascript:void(0);">内容管理模块</a></li>
+                <li><a href="javascript:void(0);">内容管理模块</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="header">
+                <p class="h_top">
+                    <i></i>您当前所在位置 : <a href="index.html">首页</a> / <a href="../list.html">慢生活</a> / <a href="javascript:void(0);">每日一句</a>
+                    <span class="login">当前用户:<span>adnim</span><span class="shengfen">身份:<span>系统管理员</span></span> <a href="javascript:quit();" >退出</a></span></p>
+            </div>
+            <div class="r_content" name="HTML" id="HTML">
+
+                <iframe name="HTML" src="adminIframe/index.html" id="iframepage" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" onLoad="iFrameHeight()"></iframe>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" language="javascript">
+        window.onload = function(){
+            appendLi();
+        }
+        window.onresize = function(){
+            appendLi();
+        }
+        function iFrameHeight() {
+            var ifm= document.getElementById("iframepage");
+            var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;
+            if(ifm != null && subWeb != null) {
+                ifm.height = subWeb.body.scrollHeight;
+                ifm.width = subWeb.body.scrollWidth;
+            }
+        }
+
+        function quit(){
+            alert('loginLeave');
+        }
+
+        function appendLi(){
+            var minWidth = getWidth();
+            if (minWidth <= 520) {
+                var lastli = document.querySelector('.lastLi');
+                if(!lastli){
+                    var ulDom = document.querySelector('.left ul');
+                    ulDom.innerHTML += '<li class="lastLi"><a href="javascript:quit();">退出</a></li>';
+                }
+
+                /* var lid = document.createElement('li');
+                var aDom = document.createElement('a');
+                aDom.innerText = "BUTTON";
+                lid.appendChild(aDom);
+                ulDom.appendChild(lid);*/
+            } else{
+                var lastLi = document.querySelector('.lastLi');
+                if(lastLi){
+                    lastLi.parentNode.removeChild(lastLi);
+                }
+            }
+
+        }
+        //获取浏览器宽度
+        function getWidth() {
+            return window.innerWidth || document.documentElement && document.documentElement.clientWidth || document.body.clientWidth;
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+
+/*detail and list */
+#content{border-top: 3px solid green;background: url('../images/detail_bg.png') no-repeat 198px -206px;}
+#content .left .con{width: 100%;box-shadow: none;}
+#content .left .con:hover{background: rgba(243,242,242,0.5);}

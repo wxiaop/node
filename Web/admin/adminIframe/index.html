@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="Author" content="" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>网站后台管理系统</title>
+    <link rel="stylesheet" href="../../css/calendar.css"/>
+    <style>
+        *{margin:0;padding: 0}
+        .right{height:1000px;}
+        .right .weather { text-align: center; width:100%;}
+        .right .music { margin-left: 50%; width: 340px; }
+        #ca { position: absolute; top: 188px; left: 10px; padding: 10px; border: 1px solid #98CECB; background: rgba(255, 255, 255, 0.5); cursor: move; box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5); }
+        #ca ul,ol,li { list-style: none; }
+        @media screen and (min-width: 875px){
+            .right .music { margin-left: 30%; }
+        }
+        @media screen and (max-width: 875px){
+            .right .music { margin-left: 0; }
+            #ca{left:0;top:460px;}
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="right">
+        <div class="weather">
+            <iframe allowtransparency="true" frameborder="0" width="875" height="98" scrolling="no" src="http://tianqi.2345.com/plugin/widget/index.htm?s=2&z=1&t=1&v=0&d=5&bd=0&k=000000&f=&q=1&e=1&a=1&c=54511&w=875&h=98&align=left"></iframe>
+        </div>
+        <div id="ca"></div>
+        <div class="music">
+            <embed src="http://www.xiami.com/widget/141555684_177561,1770478681,1771173930,1774662958,1769190585,2103991,_340_346_cccccc_dddddd_0/multiPlayer.swf" type="application/x-shockwave-flash" width="340" height="346" wmode="opaque"></embed>
+        </div>
+    </div>
+<script src="../../js/jquery-1.11.2.min.js"></script>
+<script src="../../js/calendar.js"></script>
+<script>
+    $(function(){
+        $('#ca').calendar({
+            width: 320,
+            height: 320,
+            data: [
+                {
+                    date: '2015/12/24',
+                    value: 'Christmas Eve'
+                },
+                {
+                    date: '2015/12/25',
+                    value: 'Merry Christmas'
+                },
+                {
+                    date: '2016/01/01',
+                    value: 'Happy New Year'
+                }
+            ],
+            onSelected: function (view, date, data) {
+                console.log('view:' + view)
+//                    alert('date:' + date)
+                console.log('data:' + (data || 'None'));
+            }
+        });
+        var flag = false;
+        $('#ca').mousedown(function(e){
+            flag = true;
+            console.log('down')
+            var x = e.clientX;
+            var y = e.clientY;
+            var left = $(this).offset().left;
+            var top = $(this).offset().top;
+            var minLeft = $(this).parent().offset().left;
+            var maxLeft = $(window).width() - $(this).width();
+            var maxTop = $(this).parent().height() - ($(this).height() + 20);
+            var _this = $(this);
+            $(document).mousemove(function(e2){
+                if(flag){
+                    var nx = e2.clientX;
+                    var ny = e2.clientY;
+                    var _left = nx - x + left;
+                    var _top = ny - y + top;
+                    if(_left <= minLeft){_left = minLeft;}
+                    if(_top <= 0){_top = 0;}
+                    // 限制溢出的边距
+                    if(_left >= maxLeft){_left = maxLeft;}
+                    if(_top >= maxTop){_top = maxTop;}
+
+                    _this.css({left:_left,top:_top});
+                }
+            }).mouseup(function(){
+                flag = false;
+            });
+        });
+    });
+</script>
+</body>
+</html>

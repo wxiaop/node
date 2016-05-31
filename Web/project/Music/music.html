@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Music</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		body{font-size:12px;font-family:"微软雅黑";color:#666;background:url("images/bj.jpg") no-repeat;}
+		.music{width:360px;height:470px;margin:200px auto;background:#919191;}
+		.music h2{line-height:60px;text-align:center;font-size:22px;font-weight:bold;}
+		.music .lyric{width:330px;height:380px;background:url("images/music3.gif") no-repeat top center;overflow:auto;padding:15px;position:relative;}
+
+		::-webkit-scrollbar{width:5px;height:6px;background:#ccc;}
+		::-webkit-scrollbar-button{background-color:#e5e5e5;}
+		::-webkit-scrollbar-track{background:#999;}
+		::-webkit-scrollbar-track-piece{background:#ccc}
+		::-webkit-scrollbar-thumb{background:#666;}
+		::-webkit-scrollbar-corner{background:#82AFFF;}
+		::-webkit-scrollbar-resizer{background:#FF0BEE;}
+		scrollbar{-moz-appearance:none !important;background:rgb(0,255,0) !important;}
+		scrollbarbutton{-moz-appearance:none !important;background-color:rgb(0,0,255) !important;}
+		scrollbarbutton:hover{-moz-appearance:none !important;background-color:rgb(255,0,0) !important;}
+		
+		.sel{color:red;}
+		#gc{line-height:26px;font-size:14px;list-style:none;}
+	</style>
+</head>
+<body>
+<div class="music">
+	<h2>平凡之路</h2>
+	<div class="lyric">
+		<ul>
+			
+		</ul>
+	</div>
+</div>
+<textarea id="ly" style="display:none;">		
+	[00:01.02]平凡之路
+	[00:02.76]作词：韩寒,朴树
+	[00:02.78]作曲：朴树
+	[00:03.78]演唱：朴树
+	[00:04.68]
+	[00:12.12]徘徊着的  在路上的
+	[00:17.85]你要走吗
+	[00:23.59]易碎的  骄傲着
+	[00:29.31]那也曾是我的模样
+	[00:33.59]
+	[00:34.93]沸腾着的  不安着的
+	[00:40.76]你要去哪
+	[00:46.40]谜一样的  沉默着的
+	[00:52.16]故事你真的在听吗
+	[00:56.33]
+	[00:56.60]我曾经跨过山和大海  也穿过人山人海
+	[01:02.24]我曾经拥有着一切     转眼都飘散如烟
+	[01:08.08]我曾经失落失望失掉所有方向
+	[01:13.93]直到看见平凡才是唯一的答案
+	[01:19.56]
+	[01:32.20]当你仍然  还在幻想
+	[01:37.86]你的明天
+	[01:43.53]她会好吗  还是更烂
+	[01:49.26]对我而言是另一天
+	[01:53.32]
+	[01:53.55]我曾经毁了我的一切  只想永远地离开
+	[01:59.32]我曾经堕入无边黑暗   想挣扎无法自拔
+	[02:05.22]我曾经像你像他像那野草野花
+	[02:11.08]绝望着 也渴望着 也哭也笑平凡着
+	[02:16.80]
+	[03:03.61]向前走  就这么走   就算你被给过什么
+	[03:09.37]向前走  就这么走   就算你被夺走什么
+	[03:14.98]向前走  就这么走   就算你会错过什么
+	[03:20.57]向前走  就这么走   就算你会
+	[03:25.17]
+	[03:25.40]我曾经跨过山和大海  也穿过人山人海
+	[03:30.74]我曾经拥有着一切     转眼都飘散如烟
+	[03:36.47]我曾经失落失望失掉所有方向
+	[03:42.49]直到看见平凡才是唯一的答案
+	[03:47.83]
+	[03:47.99]我曾经毁了我的一切  只想永远地离开
+	[03:53.63]我曾经堕入无边黑暗   想挣扎无法自拔
+	[03:59.26]我曾经像你像他像那野草野花
+	[04:05.32]绝望着 也渴望着 也哭也笑平凡着
+	[04:10.55]
+	[04:10.76]我曾经跨过山和大海  也穿过人山人海
+	[04:16.44]我曾经问遍整个世界  从来没得到答案
+	[04:22.15]我不过像你像他像那野草野花
+	[04:28.69]冥冥中这是我 唯一要走的路啊
+	[04:33.47]
+	[04:34.96]时间无言  如此这般
+	[04:40.76]明天已在眼前
+	[04:46.40]风吹过的  路依然远
+	[04:52.10]你的故事讲到了哪
+	[04:57.28]
+</textarea>
+
+
+<script type="text/javascript" src="../../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var music = document.createElement("audio");
+		music.src="mp3/pingfanzhilu.mp3";
+		music.autoplay="autoplay";
+		var lyric = $("#ly").val();
+		var html = "";
+		console.log(lyric);
+		var ly = lyric.split("[");
+		for(var i = 0; i < ly.length; i++) {
+			var lyArr = ly[i].split("]");
+			console.log(lyArr);		
+			var time = lyArr[0].split(".");
+			var lyCon = lyArr[1];
+			var stime = time[0].split(":");
+			var ms = stime[0]*60 + stime[1]*1;"<ul><li>"+lyCon+"</li></ul>"
+			if(lyCon){
+				html += "<li id='gc' class='"+ms+"'>"+lyCon+"</li>";
+				//"<div id='gc' class='"+ms+"'>"+lyCon+"</div>";
+			}
+		}
+		$(".lyric ul").html(html);
+
+		// 当音乐播放的时候，会调用timeupdate,时间发生变化的时候会一只调用事件
+		music.addEventListener("timeupdate",function(){
+			// 获取当前播放的时间
+			var timer = this.currentTime;
+			// 通过时间来驱动歌词
+			var s = parseInt(timer);
+			for(var i = 0; i < s; i++){
+				$("."+i).addClass("sel");
+				$(".lyric ul").css("margin-top",-(i+i+i)+"px");
+
+			}
+		},false);
+
+		
+	});
+</script>
+</body>
+</html>

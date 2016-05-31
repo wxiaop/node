@@ -1,0 +1,110 @@
+#content{border-top: 3px solid green;background: url('../images/detail_bg.png') no-repeat 198px -206px;}
+#content .left .con{width: 100%;box-shadow: none;}
+#content .left .con:hover{background: rgba(243,242,242,0.5);}
+.left{
+	margin-top:20px;
+	margin-top: 103px;
+}
+.left .con_h{
+	background: rgba(255,255,255,0.5);
+    padding: 20px;
+    line-height: 20px;
+    border: 1px dashed #ccc;
+    margin-top: -83px;
+}
+.left .con_h i{
+	background: url(../images/pos.png) top center no-repeat;
+	width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0 6px -6px 0;
+}
+.left .con_h a{
+	color: red;
+	padding: 0 20px;
+}
+
+#content .left h3{
+	padding: 20px 15px;
+}
+#content .left a{
+	color:#44AB24;
+}
+.con ul{
+	border-right:3px solid #3BA423;
+	margin:0;
+	padding: 10px 65px 10px 5px;
+}
+.con ul li {
+	padding-top: 14px;
+	position: relative;
+}
+.con ul li:hover .c_div .list_b{
+	opacity: 1;
+}
+.con ul li:hover .c_div .sanjiao{
+	opacity: 1;
+}
+.con .c_div{
+	background:rgba(255,255,255,0.9);
+	margin: 0 5px;
+	box-shadow: 0px 1px 0px rgba(122,122,122,.3), inset 0px 1px 1px rgba(122,122,122,.7);
+}
+.c_div div{
+	overflow: hidden;
+}
+.c_div div .list_img{
+	padding: 10px;
+    margin: 0 16px;
+    float: left;
+    background: rgba(124, 203, 52,0.2);
+    line-height: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.c_div div .list_con{
+	text-indent: 50px;
+    text-shadow: none;
+    font-weight: bold;
+    padding: 10px;
+    line-height: 22px;
+    position:relative;
+    z-index: 0;
+}
+.c_div div .list_con a{
+	position: absolute;
+    right: 10px;
+    bottom: -10px;
+}
+.c_div .list_b {
+	padding: 10px;
+    background: #e5e5e5;
+    margin-top: 14px;
+    font-size: 14px;
+    text-shadow: none;
+    opacity: 0;
+}
+.c_div .list_b span{
+	padding: 0 20px;
+
+}
+.arc{
+	width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    right: -74px;
+    top: 65px;
+    background: #F9F9F9;
+    border: 2px solid #3BA423;
+}
+.sanjiao{
+	border-style: solid;
+    border-width: 0px 0 22px 30px;
+    border-color: transparent transparent transparent #98CECB;
+    position: absolute;
+    right: -24px;
+    top: 76px;
+    opacity: 0;
+}

@@ -1,0 +1,114 @@
+#content{border-top: 3px solid green;background: url('../images/detail_bg.png') no-repeat 198px -206px;}
+#content .left .con{width: 100%;box-shadow: none;}
+#content .left .con:hover{background: rgba(243,242,242,0.5);}
+.left{
+	margin-top:20px;
+	border:3px solid #ccc;
+	margin-top: 103px;
+}
+.left .con_h{
+	background: rgba(255,255,255,0.5);
+    padding: 20px;
+    line-height: 20px;
+    border: 1px dashed #ccc;
+    margin-top: -83px;
+}
+.left .con_h i{
+	background: url(../images/pos.png) top center no-repeat;
+	width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0 6px -6px 0;
+}
+.left .con_h a{
+	color: red;
+	padding: 0 20px;
+}
+.con p{
+	padding: 10px 20px;
+    font-size: 16px;
+}
+.con p a:hover{
+	color: red;
+}
+.con h2{
+	text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 25px;
+    padding: 14px;
+}
+.con .detail{
+	width: 100%;
+	text-align: center;
+}
+.con .detail p{
+	padding: 10px;
+    line-height: 25px;
+    text-indent: 40px;
+}
+.con .con_f{
+	background: #ccc;
+	background: rgba(121, 121, 121, 0.34);
+}
+.con .con_f p{
+	padding: 14px;
+	
+}
+.con .con_f p span{
+	color: #130909;
+    padding: 0 14px;
+}
+/*.con_wz{
+	background: #ccc;
+}*/
+.con_wz div{
+	border: 1px solid #e5e5e5;
+	margin:10px;
+	font-size: 14px;
+}
+.con_wz div span{    
+	display: inline-block;
+    padding: 0 10px;
+    position: relative;
+    top: -9px;
+    left: 15px;
+    background: rgba(255,255,255,0.8);
+}
+.con_wz .next{
+	width: 40%;
+	float: left;
+	
+}
+.con_wz .next p{
+	padding: 0 78px;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.con_wz .next a:hover{
+	color:red;
+	padding-left:20px ;
+}
+.con_wz .like{
+	width: 54%;
+	float: right;
+}
+.con_wz .like li{
+	float:left;
+	width: 50%;
+    line-height: 25px;
+    list-style: square;
+   
+}
+.con_wz .like li a{
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.con_wz .like li:hover a{
+	margin-left: 5px;
+	color: red;
+	
+}

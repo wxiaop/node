@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>shop</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		body{font-size:12px;font-family:"微软雅黑";color:#666;}
+		.all{width:100%;height:100%;}
+		.all .top{width:1000px;height:85px;margin:0 auto;}
+		.all .banner{width:100%;height:160px;background:url("images/banner.jpg") no-repeat;}
+		.all .shop{width:1000px;margin:30px auto;}
+		.all .shop ul li{list-style:none;border:1px solid #f5f5f5;float:left;margin: 20px 0px 20px 18px;padding:5px;width:220px;}
+		.all .shop ul li:hover{border:1px solid #d0d0d0;}
+		.all .shop ul li a img:hover{transform:scale(0.5,0.5) rotate(360deg);transition:linear 0.5s;border-radius:110px;}
+		.all .shop ul li a img{transition:linear 0.5s;}
+		.all .shop ul li .price{color: #CC0000;font-size: 18px;}
+		/*.all .shop ul li .price .sum{font-size:24px;}*/
+		.all .shop ul li .tit{font-size:14px;margin: 5px auto;text-align: center;}
+		.all .shop ul li .add_car{    width: 210px;
+									  height: 36px;
+									  display: block;
+									  background: #bc0000;
+									  text-align: center;
+									  line-height: 36px;
+									  text-decoration: none;
+									  color: #fff;
+									  font-size: 14px;
+									  font-weight: bold;
+									  border-radius: 3px;
+									  }
+		.all .shop ul li .add_car:hover{background:#f90000;}
+		.all .car{width:185px;height:100%;position:fixed;top:0;right:-150px;background:#000;}
+		.all .car .c_gwc{width:35px;height:100%;float:left;}
+		.all .car .c_gwc p{width: 35px;height: 120px;padding-top: 20px;margin-top: 200px;color: #fff;font-size: 14px;cursor: pointer;}
+		.all .car .c_gwc p:hover{background:#ff0033;}
+		.all .car .c_gwc .c_pic{display:inline-block;width:35px;height:35px;background:url("images/car.png");}
+		.all .car .c_gwc .c_txt{width: 15px;height: 50px;display:block;margin: 0 auto;}
+		.all .car .c_con{width:150px;height:100%;background:#fff;float:left;position:relative;overflow:auto;}
+		.car .c_con ul li{width:225px;height:55px;list-style:none;line-height:55px;border-bottom:1px solid #EAEAEA;background:#fff;}
+		.all.car .c_con ul li a{margin-right:20px;font-size:14px;}
+		.all .car .c_con .c_account{width:150px;height:40px;display:block;background:#bc0000;text-align:center;line-height:40px;font-size:16px;text-decoration:none;color:#fff;position:fixed;bottom:0;right:-150px;}
+		.all .car .c_con .c_account:hover{background:#CC3333;}
+
+		.clear{clear:both;}
+
+		.u-flyer{width:40px;height:40px;border-radius:20px}
+
+	</style>
+</head>
+<body>
+<div class="all">
+	<div class="top">
+		<a href="#"><img src="images/logo.gif" alt="" width="320" height="85" /></a>
+	</div>
+	<div class="banner"></div>
+	<div class="shop">
+		<ul>
+			<li>
+				<a href="#">
+					<img src="images/1.jpg" alt="" width="220" height="220" />
+				</a>
+				<p class="price">￥<span class="sum">999.00</span></p>
+				<p class="tit">2015夏季新品海澜之家男装正品</p>
+				<a href="#" class="add_car">加入购物车</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/2.jpg" alt="" width="220" height="220" />
+				</a>
+				<p class="price">￥<span class="sum">999.00</span></p>
+				<p class="tit">2015夏季新品海澜之家男装正品</p>
+				<a href="#" class="add_car">加入购物车</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/3.jpg" alt="" width="220" height="220" />
+				</a>
+				<p class="price">￥<span class="sum">999.00</span></p>
+				<p class="tit">2015夏季新品海澜之家男装正品</p>
+				<a href="#" class="add_car">加入购物车</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/4.jpg" alt="" width="220" height="220" />
+				</a>
+				<p class="price">￥<span class="sum">999.00</span></p>
+				<p class="tit">2015夏季新品海澜之家男装正品</p>
+				<a href="#" class="add_car">加入购物车</a>
+			</li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+	<div class="car">
+		<div class="c_gwc">
+			<p id="c_p">
+				<span class="c_pic" id="end"></span>
+				<span class="c_txt">购物车<span>
+			</p>
+		</div>
+		<div class="c_con">
+			<ul id="cartbox"></ul>
+			<a href="javascript:void(0);" id="jz" class="c_account" onclick="tz_count_order(this)">结  算</a>		
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="../../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/fly.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".add_car").click(function(ev){
+		var $this = $(this);
+		//获取价格
+		var price = $this.parent().find(".sum").text();
+		//获取图片
+		var src = $this.parent().find("img").attr("src");
+		//获取商品的名称
+		//var title = $this.parent().find(".s_title").text();
+
+		$("#cartbox").append("<li>"+
+		"	<a href='#'><img src='"+src+"' alt='' width='50' height='50' /></a>"+
+		"	<span>优惠价：<label class='l_price'>"+price+"</label>￥</span>"+
+		"</li>");
+
+		//抛物线
+		addProduct(ev);
+		tc_car();
+
+		});
+
+		function tc_car() {
+			var css = $(".car").css("right");
+			if(css == "-150px") {
+				$("#c_p").parents(".car").css("right","-1px");
+				$("#jz").css("right","0px");
+			}
+		}
+		$("#c_p").click(function(){
+			var css = $(".car").css("right");
+			if(css == "-1px") {
+				$(this).parents(".car").css("right","-150px");
+				$("#jz").css("right","-150px");
+			}else {
+				$(this).parents(".car").css("right","-1px");
+				$("#jz").css("right","0px");
+			}
+			
+		});
+	});
+		//抛物线
+		function addProduct(event) {
+			//图层的落脚点
+			var offset = $('#end').offset();
+			//获取当前的点击js对象,$()转成jquery对象
+			var $this = $(event.target);
+			//获取当前点击的容器里面的图片
+			var src = $this.parent().find("img").attr("src");
+			var flyer = $('<img class="u-flyer" src="'+src+'"/>');
+			flyer.fly({
+				start: {
+					left: event.clientX,//获取点击购物车按钮的X,Y坐标
+					top: event.clientY
+				},
+				end: {
+					left: offset.left,//图片飞舞的停靠点
+					top: offset.top,
+					width: 20,
+					height: 20
+				},
+				onEnd:function(){
+					flyer.fadeOut("slow",function(){
+						$(this).remove();
+					});
+				}
+			});
+		};
+</script>
+</body>
+</html>

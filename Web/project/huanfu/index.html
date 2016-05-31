@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<!--当前的页面的编码集-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--charset=gbk,gb2312(中文编码),  utf-8(国际编码)-->
+		<title>  换肤 </title>
+		<meta name="Keywords" content="关键字,关键字">
+		<meta name="Description" content="">
+		<!-- css js-->
+		<style type="text/css">
+			*{margin:0px;padding:0px;}
+			body{background:url("images/project1.1.jpg");}
+			img{border:0;}
+			/*qq_div start*/
+			.qq_div{width:100%;height:110px;background:#6cf;display:none;}
+			.qq_div ul{margin:0 auto;}
+			.qq_div ul li{list-style:none;float:left;padding-right:10px;}
+			.qq_div .q_con{width:900px;height:75px;margin:0 auto;padding-top: 20px;}
+			.qq_div ul li img:hover{border:3px solid #fff;}
+			/*qq_div end*/
+			/* btn start*/
+			.btn{
+					width:50px;height:50px;
+					background:url("images/upseek.png") no-repeat;
+					position:absolute;right:0;top:0;
+				}
+			.btn:hover{background-position:0 -64px;}
+			/*end*/
+		</style>
+	</head>
+
+<body>
+	<div class="qq_div">
+		<div class="q_con">
+			<ul id="q_ul">
+				<li>
+					<a href="#"><img src="images/project1.1-1.jpg" width="138px" height="75px" alt="美女" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="images/project1.2-2.jpg" width="138px" height="75px" alt="美女" /></a>
+				</li>
+ 				<li>
+					<a href="#"><img src="images/project1.3-3.jpg" width="138px" height="75px" alt="美女" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="images/project1.4-4.jpg" width="138px" height="75px" alt="美女" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="images/project1.5-5.jpg" width="138px" height="75px" alt="美女" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="images/project1.6-6.jpg" width="138px" height="75px" alt="美女" /></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="btn" id="myBtn"></div>
+	<script type="text/javascript" src="../../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#myBtn").click(function(){
+				$(".qq_div").slideToggle("slow");
+			});
+			
+			$("#q_ul").find("a").click(function(){
+			
+				var src = $(this).find("img").attr("src").replace(/-\d*/ig,'');
+				//alert(src);
+				$("body").css("background","url("+src+")");
+				//alert(src);
+				// 需要记忆上一次点击结束时图片
+				localStorage.setItem("src",src);
+			});
+
+			var localSrc = localStorage.getItem("src");
+			if(localSrc){
+				$("body").css("background","url("+localSrc+")");
+			}
+
+
+		});
+
+	</script>
+</body>
+</html>

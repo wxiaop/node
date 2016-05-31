@@ -1,0 +1,221 @@
+@charset "utf-8";
+@mixin common{
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-family: inherit; font-size: 100%; text-align: left; vertical-align: baseline; }
+    img { border: none; }
+    table { border-collapse: collapse; border-spacing: 0; }
+    q:before, q:after, blockquote:before, blockquote:after { content: ""; }
+    //body { text-align: center; background: #cbcbcb; background: url(../images/bg.jpg); }
+    body, p, td, th, li { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.5em; color: #666666; }
+    p { margin: 0 0 1em 0; }
+    a { text-decoration: none; color: #666666; }
+    a:hover, a:active { text-decoration: none; }
+    a h2 { cursor: pointer; }
+    h1 { margin: .825em 0 .5em 0; font-size: 2.125em; }
+    h2 { margin: .825em 0 .5em 0; font-size: 1.75em; }
+    h3 { margin: .825em 0 .5em 0; font-size: 1.5em; }
+    h4 { margin: .825em 0 .5em 0; font-size: 1.25em; }
+    h5 { margin: .825em 0 .5em 0; font-size: 1.125em; }
+    h6 { margin: .825em 0 .5em 0; font-size: 1em; }
+    ul { margin-left: 25px; list-style-type: none; }
+    ol { margin-left: 25px; }
+    blockquote { margin: 0 0 18px 18px; font-style: italic; }
+    strong { font-weight: bold; }
+    em { font-style: italic; }
+}
+@mixin sanjiao($dir:top,$width:10px,$color:red){
+     display: inline-block;
+     border-width: $width;
+    @if($dir == top){
+        border-color: $color transparent transparent transparent; 
+        border-style: solid dashed dashed dashed;
+    }@else if($dir == bottom){
+        border-color: transparent transparent $color transparent; 
+        border-style: dashed dashed solid dashed;
+    }@else if($dir == left){
+        border-color: transparent transparent transparent $color; 
+        border-style: dashed dashed dashed solid ;  
+    }@else if($dir == right){
+        border-color: transparent $color transparent transparent; 
+        border-style: dashed solid dashed dashed;
+    }
+}
+
+//过度效果
+$transition_timer:.5s !default;
+$transition_type:linear !default;
+$transition_delay:.1s !default;     
+%transition{
+    -webkit-transition: all $transition_timer $transition_type $transition_delay;
+    -moz-transition: all $transition_timer $transition_type $transition_delay;
+    -ms-transition: all $transition_timer $transition_type $transition_delay;
+    -o-transition: all $transition_timer $transition_type $transition_delay;
+    transition: all $transition_timer $transition_type $transition_delay;
+}
+
+//$animation_start:"transform:translateX(50px);opacity" !default;
+//$animation_end:"transform:translateY(0);opacity" !default;
+//$transition_val:1 !default;
+//%animationA{
+//  @-webkit-keyframes animeta {
+//  	from { -webkit-#{$animation_start}:$transition_val; }
+//  	to { -webkit-#{$animation_start}:$transition_val - 0.5; }
+//  }
+//  @-o-keyframes animeta {
+//  	from { 
+//  	    -o-#{$animation_start}:$transition_val;
+//  	}
+//  	to { -o-#{$animation_start}:$transition_val - 0.5; }
+//  }
+//  @-moz-keyframes animeta {
+//  	from { -moz-#{$animation_start}:$transition_val; }
+//  	to { -moz-#{$animation_start}:$transition_val - 0.5; }
+//  }
+//  @keyframes animeta {
+//  	from { #{$animation_start}:$transition_val; }
+//  	to { #{$animation_start}:$transition_val - 0.5; }
+//  }
+//}
+
+// 动画效果 
+@mixin animation($aName:"yidong",$_startType:"transform:translateX(50px);opacity",$_endType:"transform:translateY(0);opacity",$_startVal:1,$_endVal:0.1){
+    @-webkit-keyframes #{$aName} {
+        
+        from { -webkit-#{$_startType}:$_startVal; }
+        to { -webkit-#{$_endType}:$_endVal; }
+    }
+    @-o-keyframes #{$aName} {
+        from { 
+            -o-#{$_startType}:$_startVal;
+        }
+        to { -o-#{$_endType}:$_endVal; }
+    }
+    @-moz-keyframes #{$aName} {
+        from { -moz-#{$_startType}:$_startVal; }
+        to { -moz-#{$_endType}:$_endVal; }
+    }
+    @keyframes #{$aName} {
+        from { #{$_startType}:$_startVal; }
+        to { #{$_endType}:$_endVal; }
+    }
+}
+%animation-show{
+    -webkit-animation:yidong 2s infinite ease-in-out;
+    -moz-animation:yidong 2s infinite ease-in-out;
+    -o-animation:yidong 2s infinite ease-in-out;
+    animation:yidong 2s infinite ease-in-out;
+}
+
+//.l{
+//  @include animation();
+//  @extend %animation-show;
+//}
+
+%func{
+/**   percentage($value)：将一个不带单位的数转换成百分比值；
+      round($value)：将数值四舍五入，转换成一个最接近的整数；
+      ceil($value)：将大于自己的小数转换成下一位整数；
+      floor($value)：将一个数去除他的小数部分；
+      abs($value)：返回一个数的绝对值；
+      min($numbers…)：找出几个数值之间的最小值；
+      max($numbers…)：找出几个数值之间的最大值；
+      random(): 获取随机数
+
+      length($list)：返回一个列表的长度值；
+      nth($list, $n)：返回一个列表中指定的某个标签值
+      join($list1, $list2, [$separator])：将两个列给连接在一起，变成一个列表；
+     join 函数中 $separator 除了默认值 auto 之外，还有 comma 和 space 两个值，
+                其中 comma 值指定列表中的列表项值之间使用逗号（,）分隔，space 值指定列表中的列表项值之间使用空格（ ）分隔。
+      append($list1, $val, [$separator])：将某个值放在列表的最后；
+      zip($lists…)：将几个列表结合成一个多维的列表；
+      index($list, $value)：返回一个值在列表中的位置值。
+
+$list1 : a 1 3;
+$list2 : 1 1 1 1;
+.test02{
+    width: length($list);
+    height: nth($list,1);
+    height: join($list,$list1,comma);
+    height: append($list,132,space);
+    height: zip(solid dashed dotted,1px 2px 3px,green blue red);
+    height: index($list,b);
+    
+    
+}
+
+   Introspection 函数包括了几个判断型函数：
+    type-of($value)：返回一个值的类型
+    unit($number)：返回一个值的单位
+    unitless($number)：判断一个值是否带有单位 没单位true 
+    comparable($number-1, $number-2)：判断两个值是否可以做加、减和合并
+    if($boolean,$var,var2)  //true 返回var 
+
+.test03{
+    date:type-of($str1);
+    width:unit(10px);
+    boolean:unitless(10em);
+    d:comparable(10px,10em);
+    d:if(false,8em,20em)   //
+}
+    map-get($map,$key)：根据给定的 key 值，返回 map 中相关的值。
+    map-merge($map1,$map2)：将两个 map 合并成一个新的 map。
+    map-remove($map,$key)：从 map 中删除一个 key，返回一个新 map。
+    map-keys($map)：返回 map 中所有的 key。
+    map-values($map)：返回 map 中所有的 value。
+    map-has-key($map,$key)：根据给定的 key 值判断 map 是否有对应的 value 值，如果有返回 true，否则返回 false。
+    keywords($args)：返回一个函数的参数，这个参数可以动态的设置 key 和 value。
+ 
+$theme-color: (
+    default: (
+        bgcolor: #fff,
+        text-color: #444,
+        link-color: #39f
+    ),
+    primary:(
+        bgcolor: #000,
+        text-color:#fff,
+        link-color: #93f
+    ),
+    negative: (
+        bgcolor: #f36,
+        text-color: #fefefe,
+        link-color: #d4e
+    )
+);
+$testColor:(
+    a:red,
+    b:green,
+    c:pink
+);
+.tt{
+    color:map-get($testColor,a);
+    color:map-get(map-get($theme-color,default),bgcolor);
+    c:map-keys($theme-color);
+    data:map-values($testColor);
+}
+
+    rgb($red,$green,$blue)：根据红、绿、蓝三个值创建一个颜色；
+    rgba($red,$green,$blue,$alpha)：根据红、绿、蓝和透明度值创建一个颜色；
+    red($color)：从一个颜色中获取其中红色值；
+    green($color)：从一个颜色中获取其中绿色值；
+    blue($color)：从一个颜色中获取其中蓝色值；
+    mix($color-1,$color-2,[$weight])：把两种颜色混合在一起。
+    hsl($hue,$saturation,$lightness)：通过色相（hue）、饱和度(saturation)和亮度（lightness）的值创建一个颜色；
+    hsla($hue,$saturation,$lightness,$alpha)：通过色相（hue）、饱和度(saturation)、亮度（lightness）和透明（alpha）的值创建一个颜色；
+    hue($color)：从一个颜色中获取色相（hue）值；
+    saturation($color)：从一个颜色中获取饱和度（saturation）值；
+    lightness($color)：从一个颜色中获取亮度（lightness）值；
+    adjust-hue($color,$degrees)：通过改变一个颜色的色相值，创建一个新的颜色；
+    lighten($color,$amount)：通过改变颜色的亮度值，让颜色变亮，创建一个新的颜色；
+    darken($color,$amount)：通过改变颜色的亮度值，让颜色变暗，创建一个新的颜色；
+    saturate($color,$amount)：通过改变颜色的饱和度值，让颜色更饱和，从而创建一个新的颜色
+    desaturate($color,$amount)：通过改变颜色的饱和度值，让颜色更少的饱和，从而创建出一个新的颜色；
+    grayscale($color)：将一个颜色变成灰色，相当于desaturate($color,100%);
+    complement($color)：返回一个补充色，相当于adjust-hue($color,180deg);
+    invert($color)：反回一个反相色，红、绿、蓝色值倒过来，而透明度不变。
+
+      alpha($color) /opacity($color)：获取颜色透明度值；
+      rgba($color, $alpha)：改变颜色的透明度值；
+      opacify($color, $amount) / fade-in($color, $amount)：使颜色更不透明；
+      transparentize($color, $amount) / fade-out($color, $amount)：使颜色更加透明。
+ */
+}

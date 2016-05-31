@@ -1,0 +1,180 @@
+@charset "utf-8";
+*{margin: 0;padding: 0;}
+body{font-size: 12px;font-family: "Microsoft YaHei";color: #666;}
+.container{width:100%;margin:0 auto;}
+/*header start*/
+.header{width:100%;height:400px;background: url("../images/bg.jpg") center no-repeat;}
+                  /*header top start*/
+.header .top p{width:390px;color:#fff;font-size:16px;text-shadow: #246640 1px 1px 1px; padding: 115px 0 100px 0;line-height: 28px;}
+.header .top .huiyi{height: 40px;width: 180px;line-height: 40px;color: #fff;font-size: 36px;
+    -webkit-box-reflect:below 4px -webkit-gradient(linear,0 0,6% 56,from(#ccc), to(transparent));}
+.header .top .pic{width:175px;height:175px;background: url("../images/flower.png") no-repeat;position: absolute;bottom:50px; right:0px;text-align: center;}
+.header .top .pic img{margin: 20px 21px 16px 16px;}
+                /*header top end*/
+                /* header bottom start*/
+.bottom{width:100%;background:rgba(56,134,72,.8);border-bottom: #559765 1px solid;}
+.bottom .nav ul{height:60px;margin-left:200px;}
+.bottom .nav ul li{list-style: none;float:left;transition: all 1s ease;}
+.bottom .nav ul li:hover{background:#007504;height:60px;transition: all 1s ease;}
+.bottom .nav ul li a{text-decoration: none;color:#fff;font-size: 16px;display: block;padding: 20px;}
+                /* header bottom end*/
+/* end header*/
+/*content start*/
+.content{width:100%;background:#559664;}
+/*content photos start*/
+.photos ul{overflow: hidden;}
+.photos ul li{list-style: none;float:left;background:#fff;margin:3px;position: relative;transition: all 1s ease;}
+.photos ul li .p_a{display: block;width: 200px;padding: 29px;line-height: 25px;hieght:98px;}
+.photos ul li .p_a2{width: 144px;  display: block;padding: 30px; line-height: 25px; height: 135px;}
+.photos ul li a{text-decoration: none;color:#666;}
+.photos ul li a img{display:block;transition: all 1s ease;}
+.photos ul li a p{position: absolute;top:0;left: 0;padding: 40px;line-height:20px;opacity: 0;transition: all 1s ease;}
+.photos ul li:hover p{opacity: 1;transition: all 1s ease;transform:rotate(-10deg) scale(1.2);color:#000;}
+.photos ul li:hover img{opacity: 0.3;transition: all 1s ease;}
+/*content photos end*/
+/*content about start*/
+.about .a_icon ul li{list-style: none;display: inline-block;width:30px;height:30px;border-radius: 50%;
+    animation: slateA 1.5s linear infinite;}
+.about .a_icon ul li:first-child{animation-delay:0.1s}
+.about .a_icon ul li:nth-child(2){animation-delay:0.3s}
+.about .a_icon ul li:nth-child(3){animation-delay:0.5s}
+.about .a_icon ul li:nth-child(4){animation-delay:0.7s}
+.about .a_icon ul li:nth-child(5){animation-delay:0.9s}
+.about .a_icon ul li:nth-child(6){animation-delay:1.1s}
+.about .a_icon ul li:nth-child(7){animation-delay:1.3s}
+.about .a_icon ul li:last-child{animation-delay:1.5s}
+@keyframes slateA {
+    0%{opacity: 1;transform:scale(0.1);background: #238d7b;}
+    100%{opacity: 0.3;transform: scale(1);background: #fff;}
+}
+
+.about img{border-radius: 50%;}
+.about .a_com{overflow: hidden;position: relative;margin:30px;}
+.about .a_com a{transition: all 1s ease;display: block;}
+.about .a_com p{padding: 45px;border-radius: 6px;}
+.about .a_com a:hover{opacity: 0.7;transition: all 1s ease;}
+
+.about .a_gril a{float: left;}
+.about .a_gril p{float: left;margin: 10px 0 0 110px;background-color: #99E297;box-shadow: 2px 3px 5px 1px #000;text-shadow: #fff 1px 3px 5px;}
+.about .a_boy a{float: right;}
+.about .a_boy p{float: right;background-color: #fff;margin: 10px 110px 0 0;box-shadow: -2px 3px 5px 1px #000;text-shadow: #99E297 1px 3px 5px;}
+.about .a_gril p:before{    content: "";
+    border: 25px;
+    border-style: solid;
+    border-color: transparent #99E297 transparent transparent;
+    position: absolute;
+    left: 190px;
+    bottom: 35px;
+}
+.about .a_boy p:after{    content: "";
+    border: 25px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    right: 190px;
+    bottom: 35px;
+}
+/*content about end*/
+/*content blog strat*/
+.blog .b_cen{margin: 0 32px 0 32px;}
+.blog .b_div{background: #ececec;border:10px solid #fff;width:300px;height:420px;float:left;}
+.blog .b_div .b_tit{padding: 20px;text-align: center; font-size: 16px;text-shadow: 2px 2px 3px;}
+.blog .b_div .b_tit a{text-decoration: none;color:#226039;}
+.blog .b_div .b_con{padding: 10px;line-height: 20px;}
+/*content blog end*/
+     /** bless*/
+.bless{width:100%;}
+.bless .b_bgc{background:#30613C;width:100%;height:50px;}
+/*content end*/
+/*footer start*/
+.footer{width:100%;background: #559664;}
+.footer .f_top ul{  width: 500px;position: absolute;right: 0;}
+.footer .f_top ul li{list-style: none;padding-top: 20px;position: relative;}
+.footer .f_top ul li img{border-radius: 50%;}
+.footer .f_top ul li a{text-decoration: none;color:#d2ec40;font-size: 14px;position: absolute; top: 50px;left: 136px;}
+.footer .f_top ul li p{color:#fff; position: absolute; top: 70px; left: 136px;line-height: 20px;}
+.footer .f_bottom{width:100%;height:50px;background:#246F36;line-height:50px;}
+.footer .f_bottom p a{text-decoration: none;color:#fff;}
+.footer .f_bottom p a:hover{text-decoration: underline;}
+/*end footer*/
+
+                 /* screen >= 1030*/
+@media screen and (min-width: 1030px){
+    .header .top{width:1024px;margin:0 auto;position: relative;}
+    .bottom .nav{width:1024px;margin:0 auto}
+    .photos{width: 1024px;margin:0 auto;overflow: hidden;padding:50px 0;}
+    .about{width: 1024px;margin:0 auto;overflow: hidden;padding-top: 50px;border-top:10px solid #fff;margin-bottom: 50px}
+    .blog{width:1024px;margin:0 auto;overflow: hidden;padding: 50px 0 50px 0;border-top:10px solid #fff;margin-bottom: 50px;}
+    .bless .xiangshou{width: 1024px;margin: 0 auto;line-height: 40px;color: #fff;font-size: 36px;-webkit-box-reflect:below 4px -webkit-gradient(linear,0 0,0 100%,from(#ccc), to(transparent));}
+    .footer .f_top{width:1024px;background:url("../images/love.png") no-repeat 60px 34px;margin:0 auto;height:400px;position: relative;    padding: 5px 0 50px 0;}
+    .footer .f_bottom p{width:1024px;margin:0 auto;color:#fff;text-align: right;}
+}
+                    /* screen <= 1030   and  screen >= 960*/
+@media screen and (max-width: 1030px) and (min-width: 960px) {
+    .header .top{width:960px;margin:0 auto;position: relative;}
+    .bottom .nav{width:960px;margin:0 auto}
+    .photos{width: 960px;margin:0 auto;overflow: hidden;padding:50px 0;}
+    .photos ul li .p_a {display: block;width: 152px;padding: 22px;line-height: 23px;}
+    .photos ul li:last-child img{width: 196px;height: 195px;}
+    .about{width: 960px;margin:0 auto;overflow: hidden;padding-top: 50px;border-top:10px solid #fff;margin-bottom: 50px}
+    .blog{width:960px;margin:0 auto;overflow: hidden;padding: 50px 0 50px 0;border-top:10px solid #fff;margin-bottom: 50px;}
+    .blog .b_div {border: 5px solid #fff;}
+    .blog .b_cen {margin: 0 15px 0 15px;}
+    .bless .xiangshou{width: 960px;margin: 0 auto;line-height: 40px;color: #fff;font-size: 36px;-webkit-box-reflect:below 4px -webkit-gradient(linear,0 0,0 100%,from(#ccc), to(transparent));}
+    .footer .f_top{width:960px;background:url("../images/love.png") no-repeat 60px 34px;margin:0 auto;height:400px;position: relative;    padding: 5px 0 50px 0;}
+    .footer .f_bottom p{width:960px;margin:0 auto;color:#fff;text-align: right;}
+
+}
+                    /* screen <= 960   and  screen >= 600*/
+@media screen and (max-width: 960px) and (min-width: 600px) {
+    .header .top{width:600px;margin:0 auto;position: relative;}
+    .bottom .nav{width:600px;margin:0 auto}
+    .bottom .nav ul {  height: 60px;  margin-left: 130px;}
+    .bottom .nav ul li a {  padding: 0px 7px 0 7px;  line-height: 60px;}
+    .photos{width: 600px;margin:0 auto;overflow: hidden;padding:50px 0;}
+    .photos ul li:last-child{width: 262px;}
+    .photos ul li{padding:21px;}
+    .photos ul li .p_a {width: 205px;padding: 29px;line-height: 25px;}
+    .about{width: 600px;margin:0 auto;overflow: hidden;padding-top: 50px;border-top:10px solid #fff;margin-bottom: 50px}
+    .about .a_boy p:after{right:112px;}
+    .about .a_boy p { margin: 4px 32px 0 0; width: 288px;}
+    .about .a_gril p {  margin: 4px 0 0 32px; width: 288px;}
+    .about .a_gril p:before{left:112px;}
+    .blog{width:600px;margin:0 auto;overflow: hidden;padding: 50px 0 50px 0;border-top:10px solid #fff;margin-bottom: 50px;}
+    .blog .b_div {  border: 30px solid #fff;margin:0 auto;margin-bottom: 30px;float:none;}
+    .bless .xiangshou{width: 600px;margin: 0 auto;line-height: 40px;color: #fff;font-size: 36px;-webkit-box-reflect:below 4px -webkit-gradient(linear,0 0,0 100%,from(#ccc), to(transparent));}
+    .footer{background: #559664 url("../images/love.png") no-repeat -124px 46px;}
+    .footer .f_top{width:600px;margin:0 auto;height:400px;position: relative;padding: 5px 0 50px 0;}
+    .footer .f_bottom p{width:600px;margin:0 auto;color:#fff;text-align: right;}
+    .footer .f_top ul {width: 360px;}
+    .footer .f_top ul a{    top: 35px;}
+    .footer .f_top ul p{    top: 55px;}
+}
+
+
+@media screen and (max-width: 600px) and (min-width: 0px) {
+    .header .top{width:400px;margin:0 auto;position: relative;}
+    .bottom .nav{width:400px;margin:0 auto}
+    .photos{width: 400px;margin:0 auto;overflow: hidden;padding:50px 0;}
+    .about{width: 400px;margin:0 auto;overflow: hidden;padding-top: 50px;border-top:10px solid #fff;margin-bottom: 50px}
+    .blog{width:400px;margin:0 auto;overflow: hidden;padding: 50px 0 50px 0;border-top:10px solid #fff;margin-bottom: 50px;}
+    .bless .xiangshou{width: 400px;margin: 0 auto;line-height: 40px;color: #fff;font-size: 36px;-webkit-box-reflect:below 4px -webkit-gradient(linear,0 0,0 100%,from(#ccc), to(transparent));}
+    .footer .f_top{width:400px;margin:0 auto;height:400px;position: relative;    padding: 5px 0 50px 0;}
+    .footer .f_bottom p{width:400px;margin:0 auto;color:#fff;text-align: right;}
+
+    .header .top p{font-size: 12px;}
+    .header .top .pic{right: 0;bottom: 0;}
+    .bottom .nav{width:400px;margin:0 auto}
+    .bottom .nav ul{overflow: hidden;margin:0 auto;}
+
+    .photos ul li{padding:20px;margin-bottom:30px;}
+    .about img{ width: 70px;  height: 70px;    margin-top: 20px;}
+    .about .a_com p {  padding: 20px;}
+    .about .a_gril p{    margin: 10px 0 0 50px;width: 180px;}
+    .about .a_gril p:before{left:71px;bottom:14px;}
+    .about .a_boy p{margin: 10px 50px 0 0;width: 180px;}
+    .about .a_boy p:after{right:71px;bottom:14px;}
+    .blog .b_cen{margin:0;}
+    .blog .b_div{float:none;margin:0 auto;border:20px solid #fff; margin-bottom: 20px;}
+    .footer .f_top ul {width: 420px;}
+}

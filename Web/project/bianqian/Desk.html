@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>便签</title>
+	<style type="text/css">
+		body{background:url("images/bg.jpg") no-repeat top center;font-size:12px;font-family:"微软雅黑";color:#666;}
+		*{margin:0;padding:0;}
+		.container{width:100%;height:100%;}
+		.container .menu{width:180px;background:#fff;box-shadow:3px 3px 10px 4px #000;position:absolute;display:none;z-index:1;}
+		.container .menu ul li{list-style:none;height:35px;line-height:35px;border-bottom:1px solid #ddd;font-size:14px;padding-left:20px;}
+		.container .menu ul li:hover{background:#959595;transition:all 0.5s linear;cursor:default;}
+		.container ._textbox{position:relative;}
+		.container ._textbox .t_con{width:294px;height:310px;position:absolute;}
+		.container ._textbox .t_con .t_c_con{width:256px;height:220px;position:absolute;top:60px;left:16px;outline:none;
+				font-size:18px;}
+		.timer{position:absolute;bottom:10px;right:30px;font-size:14px;}
+
+	</style>
+</head>
+<body oncontextmenu=self.event.returnValue=false><!--oncontextmenu=self.event.returnValue=false  有bug代码-->
+	<div class="container">
+		<div class="menu">
+			<ul id="desk">
+				<li>新建文件夹</li>
+				<li>添加便签</li>
+				<li>清空便签</li>
+				<li>刷新</li>
+				<li>上次资料</li>
+				<li>更换背景</li>
+				<li>注销</li>
+			</ul>
+		</div>
+		<div class="_textbox"></div>
+	</div>
+
+	<script type="text/javascript" src="../../js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+	
+		document.oncontextmenu = function(){
+			return false;
+		}	
+		$(document).mousedown(function(e){
+					var key = e.which; // 鼠标键位（右键3，左键1，滚轮2）
+					if(key == 3){
+						var x = e.clientX;
+						var y = e.clientY;
+						$(".menu").fadeIn(1000).css({left:x,top:y});
+					}
+				});
+				$(document).click(function(){
+					$(".menu").hide();
+				});
+				$("#desk").find("li").click(function(){
+					var _index = $(this).index();
+					// 添加便签
+					if(_index == 1){
+						// 获取当前鼠标右键的位置
+						var left = $(".menu").offset().left;
+						var top = $(".menu").offset().top;
+						// 生成1到3的随机数
+						var random = Math.floor(Math.random() * 3) + 1;
+						$("._textbox").append("<div class='t_con animated rollIn' style='left:"+left+"px;top:"+top+"px;'>"+
+									"<img src='images/"+random+".png' alt='便签' width='294' height='310' />"+
+									"<div class='t_c_con' contenteditable = 'true'></div>"+
+									"<p class='timer'><span>3</span>秒后自动保存</p>"+
+								"</div>");
+						auto_timer();
+					}
+
+					// 清空标签
+					if(_index == 2){
+						$(".t_con").removeClass("animated rollIn").addClass("animated bounceOut").fadeOut(1000);
+						// 清空缓存
+						localStorage.removeItem("my_label_wen");
+					}
+
+					if(_index == 3) {
+						 location.reload();
+						 /*Effective JavaScript：编写高质量JavaScript代码的68个有效方法
+						1 history.go(0)
+						2 location.reload()
+						3 location=location
+						4 location.assign(location)
+						5 document.execCommand('Refresh')
+						6 window.navigate(location)
+						7 location.replace(location)
+						8 document.URL=location.href
+						 */
+					}
+
+				});
+
+			// 自动保存时间
+		var timer = null;
+		function auto_timer(){
+			clearInterval(timer);
+			var count = 3;
+			timer = setInterval(function(){
+				if(count <= 0){
+					count = 3;
+					// 保存内容
+					localStorage.setItem("my_label_wen",$("._textbox").html());
+				}
+				$(".timer").find("span").text(count);
+				count--;
+			},1000);
+		}
+		
+		$(function(){
+			// 读取缓存信息
+			var my_label_wen = localStorage.getItem("my_label_wen");
+			if(my_label_wen){
+				$("._textbox").html(my_label_wen);
+				auto_timer();
+			}
+					
+			
+		});
+
+	</script>
+</body>
+</html>

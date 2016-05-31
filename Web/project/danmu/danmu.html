@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>弹幕技术</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		body{font-size:12px;font-family:"微软雅黑";color:#666;background:url("images/bj.jpg") no-repeat;}
+		/*btn start*/
+		.bg{width:100%;height:100%;background:#000;opacity: 0.3;filter: alpha(opacity=30);position:absolute;top:0;left:0;}
+		.bg .btn{width:200px;height:30px;line-height:30px;font-size:16px;text-align:center;display:block;margin:200px auto;text-decoration:none;border: 1px solid #fff;color:#fff;border-radius:10px;font-weight:bold;}
+		/*end btn*/
+		/*start dm*/
+		.dm{width:100%;height:100%;position:absolute;top:0;left:0;border:1px solid red;background:#fff;opacity:0.5;filter: alpha(opacity=50);}
+		.dm .d_top{width:100%;height:90%;background:#000;}
+		.dm .d_bottom{width:100%;height:10%;border:1px solid #000;background:#000;position:relative;}
+		.dm .d_bottom .d_con{width:40%;height:34px;position:absolute;top:20%;left:30%;}
+		.dm .d_bottom .d_con .text{width:75%;height:30px;line-height:30px;font-size:12px;color:#666;font-family:"微软雅黑";outline:none;float:left;}
+		.dm .d_bottom .d_con .d_btn{width:20%;height:34px;font-size:16px;color:#fff;font-family:"微软雅黑";display:inline-block;background:#33ccff;border:1px solid #33ccff;outline:none;cursor:pointer;float:left;}
+		.dm .d_top div{position:absolute;top:76px;left:0;line-height:36px;font-size:22px;font-weight:500;}
+		/*end dm*/
+	</style>
+	<link type="text/css" rel="stylesheet" href="css/loading.css"></link>
+</head>
+<body>
+	<!--btn start-->
+	<div class="bg"><a href="#" class="btn">弹幕</a></div>
+	<!--end btn-->
+	<!--dm start-->
+	<div class="dm">
+		<div class="d_top">
+			<div>1091654568</div>
+			<div>只是这样而已﹏ </div>
+			<div>2015/*/*</div>
+			<div>123456789</div>
+			<div>153413132165</div>
+			<div>231351654165 13153 ！</div>
+		</div>
+		<div class="d_bottom">
+			<div class="d_con">
+				<input type="text" class="text" />
+				<input type="button" class="d_btn" id="send" value="发表评论" />
+			</div>
+		</div>
+	</div>
+	<!--end dm-->
+<script type="text/javascript" src="../../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){		
+		init_screen();
+		$(".bg").find(".btn").click(function(){
+			$(".dm").slideDown(700);
+		});
+		$(".dm").find(".d_top").click(function(){
+			$(".dm").hide(700);
+		});
+		// 发送信息
+		$("#send").click(function(){
+			var text = $(".text").val();
+			var _label = $("<div class='magictime twisterInUp'>"+text+"</div>");
+			$(".d_top").append(_label);
+			init_screen();
+		});				
+		function init_screen(){
+			var _top = 0;
+			$(".d_top").find("div").show().each(function(){
+				var _left = $(window).width() - $(this).width();
+				var _height = $(window).height(); 
+				
+				_top = _top + 76;
+				if(_top >= _height - 100){
+					_top = 0;
+				}
+				$(this).css({left:_left,top:_top,color:getRandomColor()});
+				var time = 10000;
+				if($(this).index() % 2 == 0){
+					time = 20000;
+				}
+				$(this).animate({left:"-"+_left+"px"},time,function(){
+					$(this).remove();
+				});
+			});//autofocus
+		}
+	});
+	function getRandomColor(){
+		return '#' + (function(h) {
+			return new Array(7 - h.length).join("0") + h
+		})((Math.random() * 0x1000000 << 0).toString(16))	
+	}	
+</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+/*Responsive Layout */
+@media screen and (min-width: 1360px) {
+  .nav ul {
+    width: 1360px; }
+  .nav li {
+    margin: -21px -61px 0 60px; }
+    .nav li a {
+      padding: 28px 40px;
+      font-size: 16px; }
+
+  .bottom p {
+    width: 84%;
+    margin-left: 70px; } }
+@media screen and (max-width: 1360px) {
+  .nav ul {
+    width: 1130px; }
+  .nav li {
+    margin: -21px -61px 0 60px; }
+    .nav li a {
+      padding: 28px 30px;
+      font-size: 16px; }
+
+  .bottom p {
+    width: 100%;
+    margin-left: -8px; }
+
+  #content {
+    width: 1130px; }
+    #content .left {
+      width: 780px; }
+
+  #footer {
+    width: 1130px; } }
+@media screen and (max-width: 1130px) {
+  .nav ul {
+    width: 800px; }
+  .nav li {
+    margin: -21px -17px 0 11px; }
+    .nav li a {
+      padding: 28px 20px;
+      font-size: 16px; }
+
+  .bottom p {
+    width: 100%;
+    margin-left: 0; }
+
+  #content {
+    width: 100%;
+    margin: 30px 0px 30px -2px; }
+    #content .right .search input {
+      width: 55%; }
+    #content .left {
+      width: 73%; }
+    #content .right {
+      width: 26%; }
+
+  #footer {
+    width: 100%; } }
+@media screen and (max-width: 800px) {
+  .nav ul {
+    width: 600px; }
+  .nav h1 {
+    display: none; }
+  .nav li {
+    margin: 0 -1px 0 0; }
+    .nav li a {
+      padding: 17px 18px;
+      font-size: 16px; }
+
+  .bottom p {
+    width: 100%;
+    margin-left: 0; }
+
+  #content {
+    width: 100%;
+    margin: 30px auto; }
+    #content .left {
+      width: 100%; }
+    #content .right {
+      display: none; }
+
+  #footer {
+    width: 100%; } }
+@media screen and (max-width: 600px) {
+  .nav ul {
+    width: 100%; }
+  .nav h1 {
+    display: none; }
+  .nav li {
+    margin: 0 -1px 0 0; }
+    .nav li a {
+      padding: 10px 19px;
+      font-size: 14px; }
+
+  .bottom p {
+    width: 100%;
+    margin-left: 0; }
+
+  #content {
+    width: 100%; }
+    #content .left .con_text {
+      padding: 0;
+      width: 100%; }
+      #content .left .con_text p {
+        margin-left: 0; }
+    #content .img_btn {
+      display: block;
+      width: 240px;
+      height: 173px;
+      margin: auto; } }
+@media screen and (max-width: 400px) {
+  .nav ul {
+    width: 100%; }
+  .nav h1 {
+    display: none; }
+  .nav li {
+    margin: 0 -1px 0 0; }
+    .nav li a {
+      padding: 6px 19px;
+      font-size: 14px; }
+
+  .bottom p {
+    width: 100%;
+    margin-left: 0; } }
+
+/*# sourceMappingURL=layout.css.map */
